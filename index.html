@@ -11,20 +11,20 @@
   <meta name="description" content="Create and share a personalized Eid Mubarak wishes link with your name. Send warm Islamic greetings and blessings to your loved ones." />
   <meta name="theme-color" content="#060b14" />
 
-  <!-- Open Graph / WhatsApp Preview (Generic Truthful Metadata) -->
+  <!-- Open Graph / WhatsApp Preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes" />
-  <meta property="og:description" content="May Allah bless your life with happiness, peace, and prosperity. Click to see your special Eid Mubarak greeting!" />
+  <meta property="og:description" content="Allah aapki zindagi ko khushiyon, sukoon, barkat aur bepanah rehmaton se bhar de. Click to see your special Eid Mubarak greeting!" />
 
   <!-- Twitter / X Card -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content="Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes" />
   <meta property="twitter:description" content="Create and share your personalized Eid Mubarak greetings with family and friends." />
 
-  <!-- Google Fonts: Amiri & Outfit -->
+  <!-- Premium Typography: Poppins & Amiri -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ==========================================================================
@@ -33,7 +33,7 @@
     :root {
       --bg-primary: #060b14;
       --bg-secondary: #0c182a;
-      --bg-card: rgba(13, 27, 46, 0.82);
+      --bg-card: rgba(13, 27, 46, 0.85);
       --bg-card-border: rgba(212, 175, 55, 0.32);
       --bg-card-glow: rgba(212, 175, 55, 0.1);
 
@@ -42,9 +42,6 @@
       --gold-300: #f1cc51;
       --gold-400: #d4af37;
       --gold-500: #a7821c;
-
-      --emerald-accent: #10b981;
-      --emerald-glow: rgba(16, 185, 129, 0.2);
 
       --text-main: #f8fafc;
       --text-muted: #cbd5e1;
@@ -57,9 +54,8 @@
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 22px;
-      --radius-xl: 30px;
 
-      --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Poppins', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-calligraphy: 'Amiri', serif;
 
       --transition-smooth: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,7 +80,7 @@
       font-family: var(--font-body);
       background-color: var(--bg-primary);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 55%),
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.16) 0%, transparent 55%),
         radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
         linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
       background-attachment: fixed;
@@ -193,29 +189,23 @@
     }
 
     /* ==========================================================================
-       5. ADSTERRA AD CONTAINERS
+       5. ADSTERRA 468x60 RESPONSIVE CONTAINERS
        ========================================================================== */
-    .ad-slot-wrapper {
+    .adsterra-responsive-box {
       width: 100%;
-      min-height: 52px;
-      background: rgba(11, 21, 38, 0.45);
-      border: 1px dashed rgba(212, 175, 55, 0.22);
-      border-radius: var(--radius-sm);
+      max-width: 468px;
+      min-height: 60px;
+      margin: 4px auto;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       overflow: hidden;
-      margin: 2px 0;
+      position: relative;
     }
 
-    .ad-placeholder-text {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgba(203, 213, 225, 0.4);
-      padding: 8px;
-      text-align: center;
-      user-select: none;
+    .adsterra-responsive-box iframe {
+      max-width: 100% !important;
+      border: 0;
     }
 
     /* ==========================================================================
@@ -312,7 +302,7 @@
     }
 
     /* ==========================================================================
-       7. REAL PNG IMAGE & PROMINENT DISPLAY WITH FALLBACK
+       7. REAL PNG IMAGE PRESENTATION & VECTOR FALLBACK
        ========================================================================== */
     .eid-image-section {
       width: 100%;
@@ -348,25 +338,26 @@
     /* Fallback Artwork if Local PNG is missing */
     .eid-image-fallback {
       width: 100%;
-      padding: 24px 16px;
+      padding: 20px 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .fallback-icon {
-      width: 72px;
-      height: 72px;
+      width: 80px;
+      height: 80px;
       filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.5));
     }
 
     .fallback-title {
       font-family: var(--font-calligraphy);
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       color: var(--gold-300);
       margin: 0;
+      text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
     }
 
     /* Wishes Card */
@@ -536,7 +527,7 @@
     }
 
     /* ==========================================================================
-       10. RESULT CARD
+       10. RESULT & MESSAGE PREVIEW CARD
        ========================================================================== */
     .result-section {
       display: none;
@@ -552,9 +543,35 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .preview-card {
+      background: rgba(7, 15, 28, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin: 14px 0 16px;
+      text-align: left;
+    }
+
+    .preview-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-300);
+      margin-bottom: 8px;
+    }
+
+    .message-preview-text {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      line-height: 1.6;
+      white-space: pre-line;
+      word-break: break-word;
+    }
+
     .url-box {
       width: 100%;
-      background: rgba(5, 12, 24, 0.9);
+      background: rgba(5, 12, 24, 0.95);
       border: 1px solid rgba(212, 175, 55, 0.35);
       border-radius: var(--radius-sm);
       padding: 12px 14px;
@@ -659,14 +676,6 @@
   <!-- Main Content Container -->
   <main class="app-wrapper">
 
-    <!-- ==========================================
-         ADSTERRA TOP BANNER AREA
-         ========================================== -->
-    <aside class="ad-slot-wrapper" aria-label="Advertisement Banner">
-      <!-- ADSTERRA TOP BANNER CODE HERE -->
-      <span class="ad-placeholder-text">Sponsored Ad Space</span>
-    </aside>
-
     <!-- Greeting Hero Section -->
     <section class="glass-card" id="greeting-hero">
       
@@ -693,7 +702,7 @@
         <div id="sender-name-display" class="sender-name-display"></div>
       </div>
 
-      <!-- Real Eid PNG Section (With robust fallback) -->
+      <!-- Real Eid PNG Section (With robust self-contained SVG fallback) -->
       <div class="eid-image-section">
         <div class="eid-image-card">
           <img 
@@ -702,8 +711,9 @@
             alt="Eid Mubarak" 
             class="eid-greeting-image" 
             loading="eager"
+            onerror="handleImageError(this)"
           />
-          <!-- Fallback vector presentation shown only if PNG is missing -->
+          <!-- Fallback artwork shown automatically if local PNG file is not found -->
           <div id="eid-fallback-card" class="eid-image-fallback" style="display: none;">
             <svg class="fallback-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M50 10C35 10 22 18 15 30C28 32 38 42 38 56C38 70 28 80 15 82C22 94 35 102 50 102C75.4 102 96 81.4 96 56C96 30.6 75.4 10 50 10Z" fill="#fae18c"/>
@@ -717,7 +727,7 @@
       <!-- Wishes Message Card -->
       <div class="wishes-card">
         <p class="wishes-text">
-          May Allah bless you and your family with <span class="wishes-highlight">peace, happiness, good health, and prosperity</span>. May this Eid fill your heart with joy and your home with countless blessings.
+          Allah aapki zindagi ko khushiyon, sukoon, barkat aur bepanah rehmaton se bhar de. May this Eid bring endless joy and prosperity to you and your family! 🤲✨
         </p>
       </div>
 
@@ -736,12 +746,20 @@
     </section>
 
     <!-- ==========================================
-         ADSTERRA CONTENT / MIDDLE BANNER AREA
+         ADSTERRA TOP BANNER (468x60)
          ========================================== -->
-    <aside class="ad-slot-wrapper" aria-label="Advertisement Banner">
-      <!-- ADSTERRA CONTENT/BANNER CODE HERE -->
-      <span class="ad-placeholder-text">Sponsored Ad Space</span>
-    </aside>
+    <div class="adsterra-responsive-box" id="adsterra-top-banner">
+      <script>
+        atOptions = {
+          'key' : '74d1f09bc1cfe2e1fb0f09b22f5ea5b2',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/74d1f09bc1cfe2e1fb0f09b22f5ea5b2/invoke.js"></script>
+    </div>
 
     <!-- Generator Section -->
     <section class="glass-card" id="generator-section">
@@ -755,7 +773,7 @@
             type="text" 
             id="user-name-input" 
             class="name-input" 
-            placeholder="Enter your name (e.g. Shahid)" 
+            placeholder="Enter your name (e.g. Shahid Khan)" 
             maxlength="50"
             autocomplete="name"
             required 
@@ -764,7 +782,7 @@
         </div>
 
         <button type="submit" id="create-btn" class="btn btn-gold">
-          <span>Create Wishes Link ✨</span>
+          <span>✨ Create Wishes Link</span>
         </button>
       </form>
 
@@ -779,39 +797,69 @@
         <h3 class="section-heading" style="color: var(--gold-200); font-size: 1.15rem;">🎉 Your Eid Wishes Link is Ready!</h3>
         <p class="section-subheading" style="margin-bottom: 10px;">Copy or share your special greeting link below:</p>
 
+        <!-- Message Preview Card -->
+        <div class="preview-card">
+          <div class="preview-title">Your Eid Message Preview</div>
+          <div id="share-message-preview" class="message-preview-text"></div>
+        </div>
+
         <!-- Readonly Display Box -->
         <div id="generated-url-text" class="url-box"></div>
 
         <!-- Action Buttons -->
         <div class="action-button-stack">
-          <!-- Copy Link -->
-          <button type="button" id="copy-link-btn" class="btn btn-secondary" onclick="copyGeneratedLink()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span id="copy-btn-text">🔗 Copy Wishes Link</span>
-          </button>
-
-          <!-- Native Share Sheet (WhatsApp, Insta, FB, Telegram, etc.) -->
-          <button type="button" id="native-share-btn" class="btn btn-share" onclick="triggerNativeShare()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-            <span>✨ Share Eid Wishes</span>
-          </button>
-
           <!-- WhatsApp Specific Share -->
           <a id="whatsapp-share-btn" class="btn btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
             <span>💚 Share on WhatsApp</span>
           </a>
+
+          <!-- Native Share Sheet (WhatsApp, Insta, FB, Telegram, etc.) -->
+          <button type="button" id="native-share-btn" class="btn btn-share" onclick="triggerNativeShare()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            <span>📤 Share Eid Wishes</span>
+          </button>
+
+          <!-- Copy Link -->
+          <button type="button" id="copy-link-btn" class="btn btn-secondary" onclick="copyGeneratedLink()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span id="copy-btn-text">🔗 Copy Wishes Link</span>
+          </button>
         </div>
       </div>
     </section>
 
     <!-- ==========================================
-         ADSTERRA BOTTOM BANNER AREA
+         ADSTERRA MIDDLE BANNER (468x60)
          ========================================== -->
-    <aside class="ad-slot-wrapper" aria-label="Advertisement Banner">
-      <!-- ADSTERRA BOTTOM BANNER CODE HERE -->
-      <span class="ad-placeholder-text">Sponsored Ad Space</span>
-    </aside>
+    <div class="adsterra-responsive-box" id="adsterra-middle-banner">
+      <script>
+        atOptions = {
+          'key' : '74d1f09bc1cfe2e1fb0f09b22f5ea5b2',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/74d1f09bc1cfe2e1fb0f09b22f5ea5b2/invoke.js"></script>
+    </div>
+
+    <!-- ==========================================
+         ADSTERRA BOTTOM BANNER (468x60)
+         ========================================== -->
+    <div class="adsterra-responsive-box" id="adsterra-bottom-banner">
+      <script>
+        atOptions = {
+          'key' : '74d1f09bc1cfe2e1fb0f09b22f5ea5b2',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/74d1f09bc1cfe2e1fb0f09b22f5ea5b2/invoke.js"></script>
+    </div>
 
     <!-- Footer -->
     <footer class="app-footer">
@@ -831,9 +879,49 @@
        14. VANILLA JAVASCRIPT APPLICATION LOGIC
        ========================================================================== -->
   <script>
+    /**
+     * PRODUCTION CONFIGURATION
+     * Fallback URL used strictly when opened locally via file:// protocol
+     */
+    const PRODUCTION_BASE_URL = 'https://eidmubarak.netlify.app/';
+
     // State
     let currentGeneratedUrl = '';
     let currentSenderName = '';
+
+    /**
+     * Graceful Image Fallback Handler
+     * Ensures no broken image icons ever show up.
+     */
+    function handleImageError(imgElement) {
+      if (imgElement) {
+        imgElement.style.display = 'none';
+        const fallback = document.getElementById('eid-fallback-card');
+        if (fallback) {
+          fallback.style.display = 'flex';
+        }
+      }
+    }
+
+    /**
+     * Safe Base URL Resolver
+     * Guarantees that local file:// paths or dev IPs are NEVER exposed or shared.
+     */
+    function getBaseUrl() {
+      if (!window.location || window.location.protocol === 'file:' || !window.location.origin || window.location.origin === 'null') {
+        return PRODUCTION_BASE_URL;
+      }
+      return window.location.origin + window.location.pathname;
+    }
+
+    /**
+     * Safe Personalized URL Generator
+     */
+    function createPersonalizedUrl(sender) {
+      const baseUrl = getBaseUrl();
+      const separator = baseUrl.includes('?') ? '&' : '?';
+      return `${baseUrl}${separator}sender=${encodeURIComponent(sender)}`;
+    }
 
     /**
      * DOM Safe Text Setter
@@ -848,15 +936,15 @@
 
     /**
      * Exact Centralized Share Message Generator
-     * Formats Hindi + English viral Eid message dynamically.
+     * Formats UTF-8 Unicode Hindi + English viral Eid message dynamically.
      */
     function generateShareMessage(sender, personalizedUrl) {
       return `🌙✨ ${sender} ki taraf se aapko aur aapke poore parivaar ko dil se Eid Mubarak! 🤍\n\n` +
-             `May Allah bless your life with happiness, peace, good health and endless blessings. 🤲✨\n\n` +
+             `Allah aapki zindagi ko khushiyon, sukoon, barkat aur bepanah rehmaton se bhar de. 🤲✨\n\n` +
              `🎁 ${sender} ne aapke liye ek special Eid Wishes message bheja hai.\n\n` +
-             `👇 Apna special Eid message dekhne ke liye yahan click karein:\n\n` +
+             `👇 Apna special Eid message dekhne ke liye neeche diye gaye link par click karein:\n\n` +
              `${personalizedUrl}\n\n` +
-             `✨ Message dekhne ke baad aap bhi sirf apna naam enter karke apna FREE Eid Wishes link bana sakte hain aur apne family & friends ke saath share kar sakte hain.\n\n` +
+             `✨ Message dekhne ke baad aap bhi apna naam enter karke FREE Eid Wishes link bana sakte hain aur apne family & friends ke saath share kar sakte hain.\n\n` +
              `🌙 Eid Mubarak! ❤️`;
     }
 
@@ -892,21 +980,6 @@
       }
       if (input) {
         setTimeout(() => input.focus(), 400);
-      }
-    }
-
-    /**
-     * Image Error Handler & Fallback Setup
-     */
-    function initImageHandling() {
-      const img = document.getElementById('eid-main-image');
-      const fallback = document.getElementById('eid-fallback-card');
-
-      if (img && fallback) {
-        img.addEventListener('error', () => {
-          img.style.display = 'none';
-          fallback.style.display = 'flex';
-        });
       }
     }
 
@@ -949,6 +1022,7 @@
       const errorMsg = document.getElementById('validation-error');
       const resultBox = document.getElementById('result-box');
       const urlText = document.getElementById('generated-url-text');
+      const previewText = document.getElementById('share-message-preview');
       const waBtn = document.getElementById('whatsapp-share-btn');
 
       if (!input) return;
@@ -975,19 +1049,22 @@
 
       if (errorMsg) errorMsg.classList.remove('visible');
 
-      // CRITICAL: Dynamically derive baseUrl from current deployment (Netlify / GitHub Pages / Domain)
-      const baseUrl = window.location.origin + window.location.pathname;
+      // Generate Clean URL without local file:// leaks
       currentSenderName = enteredName;
-      currentGeneratedUrl = baseUrl + '?sender=' + encodeURIComponent(enteredName);
+      currentGeneratedUrl = createPersonalizedUrl(enteredName);
+      const fullMessage = generateShareMessage(currentSenderName, currentGeneratedUrl);
 
-      // Render URL Text
+      // Render URL & Preview Text
       if (urlText) {
         urlText.textContent = currentGeneratedUrl;
       }
 
+      if (previewText) {
+        previewText.textContent = fullMessage;
+      }
+
       // Prepare WhatsApp Share Link
       if (waBtn) {
-        const fullMessage = generateShareMessage(currentSenderName, currentGeneratedUrl);
         waBtn.href = `https://wa.me/?text=${encodeURIComponent(fullMessage)}`;
       }
 
@@ -1015,8 +1092,7 @@
         try {
           await navigator.share({
             title: 'Eid Mubarak 🌙✨',
-            text: shareText,
-            url: currentGeneratedUrl
+            text: shareText
           });
         } catch (error) {
           // Gracefully ignore user cancellation / AbortError
@@ -1079,19 +1155,18 @@
 
       const copyBtnText = document.getElementById('copy-btn-text');
       if (copied) {
-        if (copyBtnText) copyBtnText.textContent = '✓ Link Copied!';
-        showToast('Link copied to clipboard! ✨', '✓');
+        if (copyBtnText) copyBtnText.textContent = '✓ Wishes link copied!';
+        showToast('✓ Wishes link copied!', '✓');
         setTimeout(() => {
           if (copyBtnText) copyBtnText.textContent = '🔗 Copy Wishes Link';
         }, 2500);
       } else {
-        showToast('Please select and copy the text box manually', '⚠️');
+        showToast('Please select and copy the link text box manually', '⚠️');
       }
     }
 
     // App Initialization
     document.addEventListener('DOMContentLoaded', () => {
-      initImageHandling();
       initUrlParams();
 
       const nameInput = document.getElementById('user-name-input');
@@ -1106,4 +1181,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
