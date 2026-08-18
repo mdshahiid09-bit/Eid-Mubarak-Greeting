@@ -5,30 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- Primary SEO Meta Tags -->
-  <title>Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes</title>
-  <meta name="title" content="Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes" />
-  <meta name="description" content="Create and share a personalized Eid Mubarak wishes link with your name. Send warm Islamic greetings and blessings to your loved ones." />
-  <meta name="theme-color" content="#060b14" />
+  <!-- Dynamic Primary SEO Tags -->
+  <title id="seo-page-title">Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes</title>
+  <meta name="title" id="meta-title" content="Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes" />
+  <meta name="description" id="meta-desc" content="Create and share a personalized festival wishes greeting with your name. Send warm blessings to loved ones." />
+  <meta name="theme-color" id="meta-theme-color" content="#060b14" />
 
   <!-- Open Graph / WhatsApp Preview -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes" />
-  <meta property="og:description" content="Allah aapki zindagi ko khushiyon, sukoon, barkat aur bepanah rehmaton se bhar de. Click to see your special Eid Mubarak greeting!" />
+  <meta property="og:title" id="og-title" content="Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes" />
+  <meta property="og:description" id="og-desc" content="Send personalized festival greetings to family and friends." />
+  <meta property="og:image" id="og-image" content="assets/eid-mubarak.png" />
 
   <!-- Twitter / X Card -->
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes" />
-  <meta property="twitter:description" content="Create and share your personalized Eid Mubarak greetings with family and friends." />
+  <meta property="twitter:title" id="tw-title" content="Eid Mubarak 🌙✨ — Send Beautiful Eid Wishes" />
+  <meta property="twitter:description" id="tw-desc" content="Send personalized festival greetings to family and friends." />
 
-  <!-- Premium Typography: Poppins & Amiri -->
+  <!-- Google Fonts: Poppins & Amiri -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <style>
+  <!-- Firebase Modular Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+
+  <style id="dynamic-theme-styles">
     /* ==========================================================================
-       1. CSS VARIABLES & THEME SETUP
+       1. DYNAMIC CSS VARIABLES (REAL-TIME UPDATED BY ADMIN THEME ENGINE)
        ========================================================================== */
     :root {
       --bg-primary: #060b14;
@@ -62,7 +67,7 @@
     }
 
     /* ==========================================================================
-       2. GLOBAL RESET & BASE STYLES
+       2. BASE & RESET STYLES
        ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -80,8 +85,7 @@
       font-family: var(--font-body);
       background-color: var(--bg-primary);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.16) 0%, transparent 55%),
-        radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 0%, var(--bg-card-glow) 0%, transparent 55%),
         linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
       background-attachment: fixed;
       color: var(--text-main);
@@ -94,7 +98,7 @@
     }
 
     /* ==========================================================================
-       3. BACKGROUND DECORATIONS
+       3. AMBIENT BACKGROUND & DECORATIONS
        ========================================================================== */
     .bg-canvas-wrapper {
       position: fixed;
@@ -113,6 +117,1013 @@
       height: 100%;
       background-image: 
         radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 75px 120px, var(--gold-200), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 140px 70px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 210px 180px, var(--gold-200), rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 280px 40px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 340px 140px, var(--gold-200), rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 400px 300px;
+      opacity: 0.55;
+      animation: starsGlow 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes starsGlow {
+      0% { opacity: 0.35; transform: scale(1); }
+      100% { opacity: 0.7; transform: scale(1.02); }
+    }
+
+    .backdrop-silhouette {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-repeat: repeat-x;
+      background-position: bottom center;
+      background-size: 500px 120px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 130' preserveAspectRatio='none'%3E%3Cpath fill='%23d4af37' d='M0,130 L500,130 L500,105 L475,105 L475,65 Q475,45 465,40 Q455,45 455,65 L455,105 L405,105 L405,75 Q405,50 390,45 Q375,50 375,75 L375,105 L310,105 C310,80 290,50 250,15 C210,50 190,80 190,105 L125,105 L125,75 Q125,50 110,45 Q95,50 95,75 L95,105 L45,105 L45,65 Q45,45 35,40 Q25,45 25,65 L25,105 L0,105 Z'/%3E%3C/svg%3E");
+    }
+
+    .lantern-container {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      pointer-events: none;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 600px;
+      padding: 0 16px;
+    }
+
+    .lantern {
+      width: 36px;
+      height: 90px;
+      transform-origin: top center;
+      filter: drop-shadow(0 0 8px var(--bg-card-border));
+    }
+
+    .lantern-left { animation: swingLantern 4.5s ease-in-out infinite alternate; }
+    .lantern-right { animation: swingLantern 5.2s ease-in-out infinite alternate-reverse; }
+
+    @keyframes swingLantern {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+
+    /* ==========================================================================
+       4. APP CONTAINER & GLASS CARDS
+       ========================================================================== */
+    .app-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 16px 14px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-card-border);
+      box-shadow: 0 12px 30px 0 rgba(0, 0, 0, 0.45), inset 0 0 20px 0 var(--bg-card-glow);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+    }
+
+    /* Hero */
+    .hero-crescent {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 10px;
+      filter: drop-shadow(0 0 16px rgba(247, 223, 121, 0.6));
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 12px rgba(247, 223, 121, 0.4)); transform: scale(1); }
+      100% { filter: drop-shadow(0 0 20px rgba(247, 223, 121, 0.8)); transform: scale(1.04); }
+    }
+
+    .arabic-calligraphy {
+      font-family: var(--font-calligraphy);
+      font-size: 2.2rem;
+      color: var(--gold-300);
+      margin-bottom: -4px;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
+      user-select: none;
+    }
+
+    .main-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: var(--btn-gold-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .sender-badge-container {
+      margin: 10px 0 16px;
+      padding: 10px 16px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      display: inline-block;
+      max-width: 100%;
+      animation: fadeInBadge 0.6s ease-out;
+    }
+
+    @keyframes fadeInBadge {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .sender-intro {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 2px;
+    }
+
+    .sender-name-display {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gold-200);
+      word-break: break-word;
+      line-height: 1.3;
+      text-shadow: 0 0 12px rgba(247, 223, 121, 0.4);
+    }
+
+    /* Images & Fallbacks */
+    .eid-image-section {
+      width: 100%;
+      margin: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .eid-image-card {
+      width: 100%;
+      background: rgba(8, 18, 33, 0.7);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .eid-greeting-image {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.6));
+    }
+
+    .eid-image-fallback {
+      width: 100%;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .fallback-icon {
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.5));
+    }
+
+    .fallback-title {
+      font-family: var(--font-calligraphy);
+      font-size: 1.9rem;
+      color: var(--gold-300);
+      margin: 0;
+      text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+    }
+
+    .wishes-card {
+      background: rgba(16, 30, 52, 0.65);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      padding: 16px 14px;
+      margin: 12px 0 6px;
+    }
+
+    .wishes-text {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .ornament-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 16px 0;
+      opacity: 0.6;
+    }
+
+    .ornament-line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+    }
+
+    .ornament-symbol {
+      color: var(--gold-300);
+      font-size: 12px;
+    }
+
+    /* Form & Buttons */
+    .section-heading {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gold-100);
+      margin-bottom: 6px;
+    }
+
+    .section-subheading {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .name-input {
+      width: 100%;
+      height: 52px;
+      background: rgba(7, 15, 29, 0.85);
+      border: 1.5px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      padding: 0 16px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: #ffffff;
+      outline: none;
+      transition: var(--transition-smooth);
+      text-align: center;
+    }
+
+    .name-input:focus {
+      border-color: var(--gold-300);
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+      background: rgba(10, 20, 38, 0.95);
+    }
+
+    .validation-msg {
+      font-size: 0.85rem;
+      color: #f87171;
+      min-height: 18px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .validation-msg.visible {
+      opacity: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 20px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-gold {
+      background: var(--btn-gold-grad);
+      color: #0b1526;
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-gold:hover { filter: brightness(1.05); }
+
+    .btn-whatsapp {
+      background: var(--btn-whatsapp-grad);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-share {
+      background: var(--btn-share-grad);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--bg-card-border);
+      color: var(--gold-200);
+    }
+
+    /* Result Preview */
+    .result-section {
+      display: none;
+      animation: fadeInUp 0.4s ease-out forwards;
+    }
+
+    .result-section.active { display: block; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .preview-card {
+      background: rgba(7, 15, 28, 0.9);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin: 14px 0 16px;
+      text-align: left;
+    }
+
+    .preview-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-300);
+      margin-bottom: 8px;
+    }
+
+    .message-preview-text {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      line-height: 1.6;
+      white-space: pre-line;
+      word-break: break-word;
+    }
+
+    .url-box {
+      width: 100%;
+      background: rgba(5, 12, 24, 0.95);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      color: var(--gold-200);
+      overflow-wrap: anywhere;
+      word-break: break-all;
+      text-align: left;
+      margin: 12px 0 16px;
+      user-select: all;
+    }
+
+    .action-button-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Dynamic Ad Slots */
+    .adsterra-responsive-box {
+      width: 100%;
+      max-width: 468px;
+      min-height: 60px;
+      margin: 6px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .adsterra-responsive-box iframe {
+      max-width: 100% !important;
+      border: 0;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(11, 21, 38, 0.95);
+      border: 1px solid var(--gold-400);
+      color: var(--gold-100);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Maintenance Mode Screen */
+    #maintenance-view {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--bg-primary);
+      z-index: 10000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .app-footer {
+      text-align: center;
+      padding: 20px 10px 10px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Maintenance Mode Screen -->
+  <div id="maintenance-view">
+    <div class="hero-crescent" style="font-size: 3rem;">🌙</div>
+    <h1 style="color: var(--gold-300); margin: 12px 0;">We'll Be Right Back</h1>
+    <p id="maintenance-msg" style="max-width: 420px; color: var(--text-muted); line-height: 1.6;">
+      This festival greetings portal is temporarily undergoing scheduled maintenance. Please check back shortly!
+    </p>
+  </div>
+
+  <!-- Ambient Backdrop -->
+  <div class="bg-canvas-wrapper" aria-hidden="true">
+    <div class="stars-layer"></div>
+    <div class="backdrop-silhouette" id="bg-silhouette"></div>
+  </div>
+
+  <!-- Decorative Hanging Lanterns -->
+  <div class="lantern-container" id="decorative-container" aria-hidden="true">
+    <svg class="lantern lantern-left" viewBox="0 0 40 100" fill="none">
+      <line x1="20" y1="0" x2="20" y2="40" stroke="#d4af37" stroke-width="1.5"/>
+      <polygon points="20,40 30,50 30,70 20,80 10,70 10,50" fill="#aa8620" stroke="#ffd700" stroke-width="1.5"/>
+      <circle cx="20" cy="60" r="4" fill="#ffffff"/>
+      <polygon points="17,80 23,80 20,95" fill="#d4af37"/>
+    </svg>
+    <svg class="lantern lantern-right" viewBox="0 0 40 100" fill="none">
+      <line x1="20" y1="0" x2="20" y2="30" stroke="#d4af37" stroke-width="1.5"/>
+      <polygon points="20,30 32,42 32,65 20,77 8,65 8,42" fill="#aa8620" stroke="#ffd700" stroke-width="1.5"/>
+      <circle cx="20" cy="53.5" r="4" fill="#ffffff"/>
+      <polygon points="17,77 23,77 20,92" fill="#d4af37"/>
+    </svg>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="app-wrapper">
+
+    <!-- Greeting Hero Section -->
+    <section class="glass-card" id="greeting-hero">
+      
+      <div class="hero-crescent" id="hero-icon" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none">
+          <path d="M50 10C35 10 22 18 15 30C28 32 38 42 38 56C38 70 28 80 15 82C22 94 35 102 50 102C75.4 102 96 81.4 96 56C96 30.6 75.4 10 50 10Z" fill="url(#moonGrad)"/>
+          <defs>
+            <linearGradient id="moonGrad" x1="15" y1="10" x2="96" y2="102" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#fff6d6"/>
+              <stop offset="0.5" stop-color="#f7df79"/>
+              <stop offset="1" stop-color="#c49925"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="arabic-calligraphy" id="hero-greeting">عيد مبارك</div>
+      <h1 class="main-title" id="hero-title">🌙 Eid Mubarak</h1>
+
+      <!-- Dynamic Sender Badge -->
+      <div id="sender-container" class="sender-badge-container" style="display: none;">
+        <p class="sender-intro" id="sender-intro-text">Special Wishes From</p>
+        <div id="sender-name-display" class="sender-name-display"></div>
+      </div>
+
+      <!-- Real PNG Image Section + Fallback -->
+      <div class="eid-image-section" id="image-container">
+        <div class="eid-image-card">
+          <img 
+            id="eid-main-image"
+            src="assets/eid-mubarak.png" 
+            alt="Festival Greeting" 
+            class="eid-greeting-image" 
+            loading="eager"
+            onerror="handleImageError(this)"
+          />
+          <div id="eid-fallback-card" class="eid-image-fallback" style="display: none;">
+            <svg class="fallback-icon" viewBox="0 0 100 100" fill="none">
+              <path d="M50 10C35 10 22 18 15 30C28 32 38 42 38 56C38 70 28 80 15 82C22 94 35 102 50 102C75.4 102 96 81.4 96 56C96 30.6 75.4 10 50 10Z" fill="#fae18c"/>
+              <polygon points="50,22 53,30 62,30 55,35 58,43 50,38 42,43 45,35 38,30 47,30" fill="#ffd700"/>
+            </svg>
+            <div class="fallback-title" id="fallback-calligraphy">كل عام وأنتم بخير</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wishes Message Card -->
+      <div class="wishes-card" id="wishes-container">
+        <p class="wishes-text" id="wishes-message-body">
+          Allah aapki zindagi ko khushiyon, sukoon, barkat aur bepanah rehmaton se bhar de. May this festival bring endless joy and prosperity to you and your family! 🤲✨
+        </p>
+      </div>
+
+      <div class="ornament-divider" aria-hidden="true">
+        <span class="ornament-line"></span>
+        <span class="ornament-symbol" id="divider-icon">✦ 🌙 ✦</span>
+        <span class="ornament-line"></span>
+      </div>
+
+      <!-- Receiver CTA -->
+      <div id="quick-create-wrapper" style="display: none; margin-top: 8px;">
+        <button type="button" class="btn btn-secondary" id="receiver-cta-btn" onclick="scrollToGenerator()">
+          🎁 Aap bhi apna Wishes Link banayein
+        </button>
+      </div>
+    </section>
+
+    <!-- Top Ad Slot -->
+    <div class="adsterra-responsive-box" id="adsterra-top-banner"></div>
+
+    <!-- Generator Section -->
+    <section class="glass-card" id="generator-section">
+      <h2 class="section-heading" id="create-heading">Create Your Wishes</h2>
+      <p class="section-subheading" id="create-subheading">Enter your name to generate a personalized wishes link:</p>
+
+      <form id="wishes-form" onsubmit="handleFormSubmit(event)" novalidate>
+        <div class="form-group">
+          <label for="user-name-input" style="display:none;">Enter your name</label>
+          <input 
+            type="text" 
+            id="user-name-input" 
+            class="name-input" 
+            placeholder="Enter your name (e.g. Shahid Khan)" 
+            maxlength="50"
+            autocomplete="name"
+            required 
+          />
+          <div id="validation-error" class="validation-msg" role="alert">Please enter your name</div>
+        </div>
+
+        <button type="submit" id="create-btn" class="btn btn-gold">
+          <span>✨ Create Wishes Link</span>
+        </button>
+      </form>
+
+      <!-- Result Card -->
+      <div id="result-box" class="result-section" aria-live="polite">
+        <div class="ornament-divider" aria-hidden="true">
+          <span class="ornament-line"></span>
+          <span class="ornament-symbol">✦</span>
+          <span class="ornament-line"></span>
+        </div>
+
+        <h3 class="section-heading" style="color: var(--gold-200); font-size: 1.15rem;">🎉 Your Wishes Link is Ready!</h3>
+        <p class="section-subheading" style="margin-bottom: 10px;">Copy or share your special greeting link below:</p>
+
+        <div class="preview-card">
+          <div class="preview-title">Your Message Preview</div>
+          <div id="share-message-preview" class="message-preview-text"></div>
+        </div>
+
+        <div id="generated-url-text" class="url-box"></div>
+
+        <div class="action-button-stack">
+          <a id="whatsapp-share-btn" class="btn btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>💚 Share on WhatsApp</span>
+          </a>
+          <button type="button" id="native-share-btn" class="btn btn-share" onclick="triggerNativeShare()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span>📤 Share Wishes</span>
+          </button>
+          <button type="button" id="copy-link-btn" class="btn btn-secondary" onclick="copyGeneratedLink()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copy-btn-text">🔗 Copy Wishes Link</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Middle Ad Slot -->
+    <div class="adsterra-responsive-box" id="adsterra-middle-banner"></div>
+
+    <!-- Bottom Ad Slot -->
+    <div class="adsterra-responsive-box" id="adsterra-bottom-banner"></div>
+
+    <!-- Dynamic Footer -->
+    <footer class="app-footer">
+      <p id="footer-text">Eid Mubarak 🌙</p>
+      <p>Spread happiness. Share blessings.</p>
+    </footer>
+
+  </main>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span id="toast-icon">✨</span>
+    <span id="toast-msg">Notification message</span>
+  </div>
+
+  <!-- ==========================================================================
+       14. REAL-TIME VANILLA JAVASCRIPT ENGINE
+       ========================================================================== -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDtXjSEodv9RXqDbXGjpXOGMPWpsT0obn8",
+      authDomain: "festival-wishes-greeting-235e0.firebaseapp.com",
+      databaseURL: "https://festival-wishes-greeting-235e0-default-rtdb.firebaseio.com",
+      projectId: "festival-wishes-greeting-235e0",
+      storageBucket: "festival-wishes-greeting-235e0.firebasestorage.app",
+      messagingSenderId: "615180134302",
+      appId: "1:615180134302:web:f95a261cd2bf81c008d88f"
+    };
+
+    const PRODUCTION_BASE_URL = 'https://eidmubarak.netlify.app/';
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const db = firebase.database();
+
+    // State Store
+    let currentFestival = null;
+    let currentSiteSettings = {};
+    let currentGeneratedUrl = '';
+    let currentSenderName = '';
+
+    function handleImageError(img) {
+      if (img) {
+        img.style.display = 'none';
+        const fallback = document.getElementById('eid-fallback-card');
+        if (fallback) fallback.style.display = 'flex';
+      }
+    }
+
+    function getBaseUrl() {
+      if (!window.location || window.location.protocol === 'file:' || !window.location.origin || window.location.origin === 'null') {
+        return PRODUCTION_BASE_URL;
+      }
+      return window.location.origin + window.location.pathname;
+    }
+
+    function createPersonalizedUrl(sender, festivalSlug) {
+      const baseUrl = getBaseUrl();
+      const sep = baseUrl.includes('?') ? '&' : '?';
+      let url = `${baseUrl}${sep}sender=${encodeURIComponent(sender)}`;
+      if (festivalSlug) {
+        url += `&festival=${encodeURIComponent(festivalSlug)}`;
+      }
+      return url;
+    }
+
+    function setSafeText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text || '';
+    }
+
+    function generateShareMessage(sender, url, festival) {
+      if (festival && festival.sharing && festival.sharing.shareMessage) {
+        let msg = festival.sharing.shareMessage;
+        msg = msg.replace(/{sender}/g, sender);
+        msg = msg.replace(/{url}/g, url);
+        msg = msg.replace(/{festival}/g, festival.basic?.name || 'Festival');
+        msg = msg.replace(/{title}/g, festival.basic?.title || festival.basic?.name || 'Festival');
+        return msg;
+      }
+      return `🌙✨ ${sender} ki taraf se aapko aur aapke poore parivaar ko dil se Eid Mubarak! 🤍\n\n` +
+             `Allah aapki zindagi ko khushiyon, sukoon, barkat aur bepanah rehmaton se bhar de. 🤲✨\n\n` +
+             `🎁 ${sender} ne aapke liye ek special Eid Wishes message bheja hai.\n\n` +
+             `👇 Apna special Eid message dekhne ke liye neeche diye gaye link par click karein:\n\n` +
+             `${url}\n\n` +
+             `✨ Message dekhne ke baad aap bhi apna naam enter karke FREE Eid Wishes link bana sakte hain aur apne family & friends ke saath share kar sakte hain.\n\n` +
+             `🌙 Eid Mubarak! ❤️`;
+    }
+
+    function showToast(msg, icon = '✨') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      const toastIcon = document.getElementById('toast-icon');
+      if (!toast || !toastMsg) return;
+      toastMsg.textContent = msg;
+      if (toastIcon) toastIcon.textContent = icon;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+
+    function scrollToGenerator() {
+      const sec = document.getElementById('generator-section');
+      const inp = document.getElementById('user-name-input');
+      if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (inp) setTimeout(() => inp.focus(), 400);
+    }
+
+    // Dynamic Sandboxed Ad Injector (Fixes 468x60 Mobile Overflow)
+    function injectAd(containerId, adCode) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = '';
+      if (!adCode || adCode.trim() === '') return;
+
+      const iframe = document.createElement('iframe');
+      iframe.style.width = '100%';
+      iframe.style.maxWidth = '468px';
+      iframe.style.height = '60px';
+      iframe.style.border = '0';
+      iframe.style.overflow = 'hidden';
+      iframe.scrolling = 'no';
+      container.appendChild(iframe);
+
+      const doc = iframe.contentWindow.document;
+      doc.open();
+      doc.write(`<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body>${adCode}</body></html>`);
+      doc.close();
+    }
+
+    // Real-Time Render Engine
+    function renderFestival(festival) {
+      if (!festival) return;
+      currentFestival = festival;
+
+      // 1. Maintenance Check
+      if (currentSiteSettings?.maintenanceMode?.enabled) {
+        document.getElementById('maintenance-view').style.display = 'flex';
+        setSafeText('maintenance-msg', currentSiteSettings.maintenanceMode.message);
+        return;
+      } else {
+        document.getElementById('maintenance-view').style.display = 'none';
+      }
+
+      // 2. Texts & Calligraphy
+      setSafeText('hero-title', festival.basic?.title || 'Eid Mubarak');
+      setSafeText('hero-greeting', festival.basic?.greeting || 'عيد مبارك');
+      setSafeText('wishes-message-body', festival.content?.wishesMessage);
+      setSafeText('sender-intro-text', festival.content?.senderIntro || 'Special Wishes From');
+      setSafeText('receiver-cta-btn', festival.content?.receiverCta || '🎁 Aap bhi apna Wishes Link banayein');
+      setSafeText('create-heading', festival.content?.createHeading || 'Create Your Wishes');
+      setSafeText('create-subheading', festival.content?.createSubheading || 'Enter your name to generate a personalized link:');
+      setSafeText('footer-text', festival.content?.footerText || `${festival.basic?.name || 'Festival'} 🌙`);
+
+      // 3. Dynamic SEO Meta
+      if (festival.seo?.title) {
+        document.title = festival.seo.title;
+        setSafeText('seo-page-title', festival.seo.title);
+      }
+      if (festival.seo?.description) {
+        const d = document.getElementById('meta-desc');
+        if (d) d.content = festival.seo.description;
+      }
+
+      // 4. Dynamic Theme Engine
+      if (festival.theme) {
+        const root = document.documentElement;
+        if (festival.theme.backgroundPrimary) root.style.setProperty('--bg-primary', festival.theme.backgroundPrimary);
+        if (festival.theme.backgroundSecondary) root.style.setProperty('--bg-secondary', festival.theme.backgroundSecondary);
+        if (festival.theme.goldColor) {
+          root.style.setProperty('--gold-300', festival.theme.goldColor);
+          root.style.setProperty('--gold-400', festival.theme.goldColor);
+        }
+      }
+
+      // 5. Images
+      const img = document.getElementById('eid-main-image');
+      const fallback = document.getElementById('eid-fallback-card');
+      if (img && festival.images?.mainPngUrl) {
+        img.src = festival.images.mainPngUrl;
+        img.style.display = 'block';
+        if (fallback) fallback.style.display = 'none';
+      }
+
+      // 6. Real-Time Adsterra Ad Injection
+      if (festival.ads?.enabled !== false) {
+        if (festival.ads?.top?.enabled !== false) injectAd('adsterra-top-banner', festival.ads?.top?.code);
+        else injectAd('adsterra-top-banner', '');
+
+        if (festival.ads?.middle?.enabled !== false) injectAd('adsterra-middle-banner', festival.ads?.middle?.code);
+        else injectAd('adsterra-middle-banner', '');
+
+        if (festival.ads?.bottom?.enabled !== false) injectAd('adsterra-bottom-banner', festival.ads?.bottom?.code);
+        else injectAd('adsterra-bottom-banner', '');
+      } else {
+        injectAd('adsterra-top-banner', '');
+        injectAd('adsterra-middle-banner', '');
+        injectAd('adsterra-bottom-banner', '');
+      }
+
+      // 7. Check Sender Query Parameter
+      checkSenderParam();
+    }
+
+    function checkSenderParam() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const rawSender = params.get('sender');
+        if (rawSender && rawSender.trim().length > 0) {
+          const sender = decodeURIComponent(rawSender.trim()).slice(0, 50);
+          setSafeText('sender-name-display', sender);
+          document.getElementById('sender-container').style.display = 'inline-block';
+          document.getElementById('quick-create-wrapper').style.display = 'block';
+          if (currentFestival?.basic?.name) {
+            document.title = `${sender} Wishes You ${currentFestival.basic.name}! ✨`;
+          }
+        }
+      } catch (e) {
+        console.warn('Sender URL error:', e);
+      }
+    }
+
+    // REAL-TIME FIREBASE SYNCHRONIZATION LISTENER
+    function initRealtimeSync() {
+      const params = new URLSearchParams(window.location.search);
+      const requestedSlug = params.get('festival');
+
+      // 1. Site Settings Real-time Listener (Maintenance & Active Festival)
+      db.ref('settings/site').on('value', snap => {
+        currentSiteSettings = snap.val() || {};
+
+        if (currentSiteSettings.maintenanceMode?.enabled) {
+          document.getElementById('maintenance-view').style.display = 'flex';
+          setSafeText('maintenance-msg', currentSiteSettings.maintenanceMode.message);
+          return;
+        } else {
+          document.getElementById('maintenance-view').style.display = 'none';
+        }
+
+        // If no slug requested, listen to active festival in real-time
+        if (!requestedSlug && currentSiteSettings.activeFestivalId) {
+          db.ref(`festivals/${currentSiteSettings.activeFestivalId}`).on('value', festSnap => {
+            if (festSnap.exists()) {
+              renderFestival(festSnap.val());
+            }
+          });
+        }
+      });
+
+      // 2. If specific festival slug is requested in URL
+      if (requestedSlug) {
+        db.ref('festivals').orderByChild('basic/slug').equalTo(requestedSlug).on('value', snap => {
+          if (snap.exists()) {
+            const data = Object.values(snap.val())[0];
+            renderFestival(data);
+          }
+        });
+      } else {
+        // Fallback default listener
+        db.ref('festivals').limitToFirst(1).on('value', snap => {
+          if (snap.exists() && !currentFestival) {
+            const data = Object.values(snap.val())[0];
+            renderFestival(data);
+          }
+        });
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('user-name-input');
+      const err = document.getElementById('validation-error');
+      const name = input ? input.value.trim() : '';
+
+      if (!name) {
+        if (err) { err.textContent = 'Please enter your name'; err.classList.add('visible'); }
+        if (input) input.focus();
+        return;
+      }
+      if (err) err.classList.remove('visible');
+
+      currentSenderName = name;
+      currentGeneratedUrl = createPersonalizedUrl(name, currentFestival?.basic?.slug);
+      const fullMsg = generateShareMessage(currentSenderName, currentGeneratedUrl, currentFestival);
+
+      setSafeText('generated-url-text', currentGeneratedUrl);
+      setSafeText('share-message-preview', fullMsg);
+
+      const waBtn = document.getElementById('whatsapp-share-btn');
+      if (waBtn) waBtn.href = `https://wa.me/?text=${encodeURIComponent(fullMsg)}`;
+
+      const resBox = document.getElementById('result-box');
+      if (resBox) {
+        resBox.classList.add('active');
+        resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      showToast('Wishes link ready to share! 🎉');
+    }
+
+    async function triggerNativeShare() {
+      if (!currentGeneratedUrl || !currentSenderName) {
+        showToast('Please create link first!', '⚠️');
+        return;
+      }
+      const fullMsg = generateShareMessage(currentSenderName, currentGeneratedUrl, currentFestival);
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: currentFestival?.basic?.title || 'Festival Greetings', text: fullMsg });
+        } catch (e) {
+          if (e.name !== 'AbortError') copyGeneratedLink();
+        }
+      } else {
+        copyGeneratedLink();
+      }
+    }
+
+    async function copyGeneratedLink() {
+      if (!currentGeneratedUrl) return;
+      let copied = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try { await navigator.clipboard.writeText(currentGeneratedUrl); copied = true; } catch(e){}
+      }
+      if (!copied) {
+        const ta = document.createElement('textarea');
+        ta.value = currentGeneratedUrl;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        copied = document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      const btnText = document.getElementById('copy-btn-text');
+      if (copied) {
+        if (btnText) btnText.textContent = '✓ Link Copied!';
+        showToast('Wishes link copied! ✨', '✓');
+        setTimeout(() => { if (btnText) btnText.textContent = '🔗 Copy Wishes Link'; }, 2500);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initRealtimeSync();
+      const input = document.getElementById('user-name-input');
+      const err = document.getElementById('validation-error');
+      if (input && err) {
+        input.addEventListener('input', () => err.classList.remove('visible'));
+      }
+    });
+  </script>
+</body>
+</html>        radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
         radial-gradient(1px 1px at 75px 120px, #fae18c, rgba(0,0,0,0)),
         radial-gradient(2px 2px at 140px 70px, #ffffff, rgba(0,0,0,0)),
         radial-gradient(1px 1px at 210px 180px, #fae18c, rgba(0,0,0,0)),
